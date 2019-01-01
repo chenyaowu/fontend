@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html><!--html 称为根标签，所有的网页标签都在<html></html>中-->
+<head><!--head 标签用于定义文档的头部，它是所有头部元素的容器。头部元素有<title>、<script>、 <style>、<link>、 <meta>等标签 -->
+<title>标题</title><!--在title标签之间的文字内容是网页的标题信息，它会出现在浏览器的标题栏中。网页的title标签用于告诉用户和搜索引擎这个网页的主要内容是什么，搜索引擎可以通过网页标题，迅速的判断出网页的主题。每个网页的内容都是不同的，每个网页都应该有一个独一无二的titl -->
+</head>
+<body><!--body 标签之间的内容是网页的主要内容 -->
+<p>p 段落文本</p>
+<h1>hx 标题文本</h1><!--<hx>标签制作文章标题 -->
+<em>em 表示强调</em></br>
+<strong>strong 表示更强烈的强调</strong></br>
+<span>span 没有语义，为了设置单独的样式</span></br>
+<q>q 短文本引用</q>
+<blockquote>blockquote 长文本引用</blockquote></br>
+</br>br 用于折行</br>
+&nbsp;& nbsp;这是空格</br>
+hr 添加水平线<hr>
+<address>address 联系人地址信息</address>
+<code>code 加入一行代码</code>
+<pre>pre 加入大段代码</pre>
+ul-li列表 无序
+<ul>
+	<li>无序列表一</li>
+	<li>无序列表二</li>
+	<li>无序列表三</li>
+</ul>
+ol-li列表 有序
+<ol>
+	<li>有序列表一</li>
+	<li>有序列表二</li>
+	<li>有序列表三</li>
+</ol>
+
+<div>div容器</div>
+<table summary="摘要" >
+	<caption>caption table标题 summary table摘要</caption>
+  <tbody>
+    <tr>
+      <th>班级</th>
+      <th>学生数</th>
+      <th>平均成绩</th>
+    </tr>
+    <tr>
+      <td>一班</td>
+      <td>30</td>
+      <td>89</td>
+    </tr>
+    <tr>
+      <td>二班</td>
+      <td>35</td>
+      <td>85</td>
+    </tr>
+    <tr>
+        <td>三班</td>
+        <td>32</td>
+        <td>80</td>
+    </tr>
+  </tbody>
+</table>
+<a href="#" target="_blank">a target="_blank" 链接到另一个页面,在新建浏览器窗口打开</a><br>
+<a href="mailto:xxx@xxx.com?cc=xxxx@xxx.com&subject=xxxxxxxxx&body=xxxxxx"></a><!--cc 抄送 subject 标题 body内容 -->
+<img src="图片地址" alt="alt 下载失败时的替换文本" title="title 提示文本">
+<br><br><br><br>
+form 表单 
+<form method="post" action="save.jsp">
+	<label for="username">用户名:</label>
+      <input type="text"  name="username" id="username" value="" /><br>
+      <label for="pass">密码:</label>
+      <input type="password"  name="pass" id="pass" value="" /> <br>   
+      <textarea rows="10" cols="40">textarea 文本域 rows行数 cols列数</textarea>
+      <br>
+      <!--单选 -->
+      <label> input type="radio" 单选 性别:</label>
+      <label for="man">男</label>
+      <input id="man" type="radio" value="1"  name="gender" checked="checked" />
+      <label for="woman">女</label>
+      <input id="woman" type="radio" value="2"  name="gender" />
+      <br>
+	  <!--多选 -->
+
+      <label> input type="checkbox" 多选 您对哪些运动感兴趣，请选择</label>
+      <label for="run">跑步</label>
+      <input id="run" type="checkbox" name="sport" value="1">
+      <label for="climb">登山</label>
+      <input id="climb" type="checkbox" name="sport" value="2">
+      <label for="baskit">打球</label>
+      <input id="baskit" type="checkbox" name="sport" value="3">
+      <br>
+	  <!--下拉列表 -->
+	  <label>select-option 下拉列表 爱好:</label>
+      <select>
+      	<option value="看书">看书</option>
+      	<option value="旅游"selected="selected">旅游</option>
+      	<option value="运动">运动</option>
+      	<option value="购物">购物</option>
+   	  </select>
+   	  <br>
+   	  <!-- 使用下拉列表框进行多选 -->
+	   <label> select multiple="mutiple" - option 使用下拉列表框进行多选 爱好:
+	   </label>
+       <select multiple="mutiple">
+  	    <option value="看书">看书</option>
+      	<option value="旅游">旅游</option>
+      	<option value="运动">运动</option>
+      	<option value="购物">购物</option>
+       </select>
+	<br>
+      <input type="submit" value="确定"  name="submit" />
+      <input type="reset" value="重置" name="reset" />
+		
+</form>
+
+
+
+</body>
+</html>
