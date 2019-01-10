@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>js时间对象</title>
+</head>
+<script type="text/javascript">
+window.onload = function() {
+	nowTime();
+	setInterval(function(){nowTime()},1000);
+	setInterval(function(){limitTime()},1000);
+	countDownTime();
+}
+
+function nowTime() {
+	var myDate = new Date();
+	var year = myDate.getFullYear();
+	var month = myDate.getMonth()+1;
+	var date = myDate.getDay();
+	var h =myDate.getHours();
+	var m = myDate.getMinutes();
+	var s = myDate.getSeconds();
+
+	if(m < 10){ m = '0' + m; }
+	if(s < 10){ s = '0' + s; }
+
+	var weekday = new Array(7);
+	weekday[0] = "星期日";
+	weekday[1] = "星期一";
+	weekday[2] = "星期二";
+	weekday[3] = "星期三";
+	weekday[4] = "星期四";
+	weekday[5] = "星期五";
+	weekday[6] = "星期六";
+
+	document.getElementById('nowTime').innerHTML = year + '年' + month + '月' + date + '日' + weekday[date] 
+	+ h + ':' + m + ":" + s;	
+}
+
+function countDownTime() {
+	var curtime = new Date();
+	var endtime = new Date("2019,2,1");
+	var lefttime = Math.ceil((endtime.getTime() - curtime.getTime())/(24*60*60*1000));
+	document.getElementById('countDownTime').innerHTML = lefttime;
+}
+
+function limitTime() {
+	var nowtime = new Date();
+	var endtime = new Date("2019,1,11,00:00:00");
+	var lefttime = parseInt((endtime.getTime() - nowtime.getTime())/1000);
+	var d = parseInt(lefttime/(24*60*60));
+	var h = parseInt(lefttime/(60*60)%24);
+	var m = parseInt(lefttime/60%60);
+	var s = parseInt(lefttime%60);
+
+	var limitTime = document.getElementById('limitTime');
+	if(lefttime <0 ){
+		limitTime.innerHTML = '抢购结束';
+	}else{
+		limitTime.innerHTML = d + '天' + h + '小时' + m + '分' + s + '秒' ;
+	}
+	
+
+}
+</script>
+<body>
+	<div id="nowTime"></div>
+	<div id="countDownTime"></div>
+	<div id="limitTime"></div>
+</body>
+</html>
