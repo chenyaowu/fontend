@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>jQuery插件-Validation Plugin</title>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="jquery.validate.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#demoForm").validate({
+		debug: true, //调试
+		rules: {
+			username: {
+				required: true, //必填
+				//remote: "xxx.url", //远程校验 get方式
+				minlength: 2, //最小长度
+				maxlength: 10 //最大长度
+
+			},
+			password: {
+				required: true,
+				remote: { 	//远程校验，post方式
+					url: "xxx.url",
+					type: "post",
+					data: {
+						loginTime:function(){ return + new Date; }
+					}
+				}
+				rangelength: [2,10], //长度范围
+			},
+			confirm_password: {
+				equalTo: "#password"  //与密码相等
+			},
+			birthday: {
+				date: true   //日期 jq转换日期
+			},
+			age: {
+				digits: true, //数字
+				min: 10, //最小值
+				max: 120 //最大值
+				
+			},
+			height: {
+				number: true,	//数字
+				range: [100,250] //取值范围
+			},
+			bloh_url: {
+				url: true //url地址 http://www.baidu.com
+			},
+			email: {
+				email: true //邮箱地址
+			}
+
+		},
+		messages: {
+			username: {
+				required: "请输入用户名",
+				minlength: "最小长度为2",
+				maxlength: "最大长度为10"
+			},
+			password: {
+				required: "请输入密码",
+				minlength: "最小长度为2",
+				maxlength: "最大长度为10"
+			}
+		}
+	});
+});
+
+</script>
+</head>
+<body>
+<form id="demoForm">
+	<fieldset>
+		<legend>用户登录</legend>
+		<p>
+			<label for="username">用户名</label>
+			<input type="text" name="username" id="username">
+		</p>
+		<p>
+			<label for="password">密码</label>
+			<input type="text" name="password" id="password">
+		</p>
+		<p>
+			<label for="confirm_password">密码</label>
+			<input type="text" name="confirm_password" id="confirm_password">
+		</p>
+		<p>
+			<label for="birthday">出生日期</label>
+			<input type="text" name="birthday" id="birthday">
+		</p>
+		<p>
+			<label for="age">年龄</label>
+			<input type="text" name="age" id="age">
+		</p>
+		<p>
+			<label for="height">身高</label>
+			<input type="text" name="height" id="height">
+		</p>
+		<p>
+			<label for="bloh_url">博客地址</label>
+			<input type="text" name="bloh_url" id="bloh_url">
+		</p>
+		<p>
+			<label for="email">email</label>
+			<input type="text" name="email" id="email">
+		</p>
+		<p>
+			
+			<input type="submit" value="提交">
+		</p>
+	</fieldset>
+</form>
+
+</body>
+</html>
