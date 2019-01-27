@@ -1,0 +1,172 @@
+/*
+在编写CSS3样式时，不同的浏览器可能需要不同的前缀。它表示该CSS属性或规则尚未成为W3C标准的一部分，是浏览器的私有属性，虽然目前较新版本的浏览器都是不需要前缀的，但为了更好的向前兼容前缀还是少不了的
+前缀      浏览器
+-webkit  chrome和safari
+-moz     firefox
+-ms		 IE
+-o       opera
+*/
+
+/*
+圆角效果 border-radius
+
+eg1:
+border-radius:10px;  所有角都使用半径为10px的圆角 
+eg2:
+border-radius: 5px 4px 3px 2px; /* 四个半径值分别是左上角、右上角、右下角和左下角，顺时针 
+eg3:实心上半圆
+方法：把高度(height)设为宽度（width）的一半，并且只设置左上角和右上角的半径与元素的高度一致（大于也是可以的）:
+div{
+    height:50px;是width的一半
+    width:100px;
+    background:#9da;
+    border-radius:50px 50px 0 0;半径至少设置为height的值
+    }
+eg4:实心圆：
+方法：把宽度（width）与高度(height)值设置为一致（也就是正方形），并且四个圆角值都设置为它们值的一半。
+div{
+    height:100px;与width设置一致
+    width:100px;
+    background:#9da;
+    border-radius:50px;四个圆角值都设置为宽度或高度值的一半
+    }
+
+*/ 
+
+/*
+阴影 box-shadow
+box-shadow: X轴偏移量 Y轴偏移量 [阴影模糊半径] [阴影扩展半径] [阴影颜色] [投影方式];
+
+值				 描述
+X轴偏移量		必需。水平阴影的位置。允许负值。
+Y轴偏移量		必需。垂直阴影的位置。允许负值。
+阴影模糊半径		可选。模糊距离。
+阴影扩展半径		可选。阴影的尺寸。
+阴影颜色			可选。阴影的颜色。省略默认黑色。
+投影方式 		可选（设置inset时为内部阴影方式，省略为外阴影方式)。
+
+阴影模糊半径与阴影扩展半径的区别:
+阴影模糊半径：此参数可选，其值只能是为正值，如果其值为0时，表示阴影不具有模糊效果，其值越大阴影的边缘就越模糊；
+阴影扩展半径：此参数可选，其值可以是正负值，如果值为正，则整个阴影都延展扩大，反之值为负值时，则缩小；
+
+eg1:
+内阴影
+.box_shadow{
+  box-shadow:4px 2px 6px #333333 inset; 
+}
+eg2:
+外阴影
+.box_shadow{
+  box-shadow:4px 2px 6px #333333; 
+}
+eg3:
+多个阴影(如果添加多个阴影，只需用逗号隔开即可)
+.box_shadow{
+    box-shadow:4px 2px 6px #f00, -4px -2px 6px #000, 0px 0px 12px 5px #33CC00 inset;
+}
+*/
+
+/*
+CSS3边框 为边框应用图片 border-image
+eg:
+border-image: url(xx.jpg) 70 70 70 70 round;
+url:图片路径
+70 70 70 70 切割图片的宽度，单位为像素，但省略px也可以使用百分比，遵循顺时针的规律来分别设置。
+round 图片延伸方式 三个可选参数分别为：
+round(平铺)
+repeat(重复)
+stretch(拉伸)
+*/
+
+/*
+CSS3颜色 
+
+RGBA
+语法：
+color：rgba(R,G,B,A)
+以上R、G、B三个参数，正整数值的取值范围为：0 - 255。百分数值的取值范围为：0.0% - 100.0%。超出范围的数值将被截至其最接近的取值极限。并非所有浏览器都支持使用百分数值。A为透明度参数，取值在0~1之间，不可为负值。
+eg:
+background-color:rgba(100,120,60,0.5);
+
+渐变色彩 
+线性渐变
+角度		用英文	    作用
+0deg    to top     从下向上
+90deg   to right   从左向右
+180deg  to bottom  从上到下
+270deg  to left    从右向左
+      to top left  右下角到左上角
+	  to top right 左下角到右上角
+eg:
+background-image:linear-gradient(to top left, #fff,#999);
+*/
+
+/*
+文字与字体
+text-overflow用来设置是否使用一个省略标记（...）标示对象内文本的溢出
+剪切： text-overflow:clip;
+表示显示省略标记： text-overflow:ellipsis;
+text-overflow只是用来说明文字溢出时用什么方式显示，要实现溢出时产生省略号的效果，还须定义强制文本在一行内显示（white-space:nowrap）及溢出内容为隐藏（overflow:hidden），只有这样才能实现溢出文本显示省略号的效果：
+text-overflow:ellipsis; 
+overflow:hidden; 
+white-space:nowrap;
+
+word-wrap也可以用来设置文本行为，当前行超过指定容器的边界时是否断开转行
+表示控制连续文本换行： word-wrap:normal;
+表示内容将在边界内换行：word-wrap:break-word;
+normal为浏览器默认值，break-word设置在长单词或 URL地址内部进行换行，此属性不常用，用浏览器默认值即可。
+
+嵌入字体@font-face
+@font-face能够加载服务器端的字体文件，让浏览器端可以显示用户电脑里没有安装的字体。
+语法:
+@font-face {
+    font-family : 字体名称;
+    src : 字体文件在服务器上的相对或绝对路径;
+}
+
+文本阴影text-shadow
+语法：
+text-shadow: X-Offset Y-Offset blur color;
+X-Offset：表示阴影的水平偏移距离，其值为正值时阴影向右偏移，反之向左偏移；      
+Y-Offset：是指阴影的垂直偏移距离，如果其值是正值时，阴影向下偏移，反之向上偏移；
+Blur：是指阴影的模糊程度，其值不能是负值，如果值越大，阴影越模糊，反之阴影越清晰，如果不需要阴影模糊可以将Blur值设置为0；
+Color：是指阴影的颜色，其可以使用rgba色。
+eg:
+text-shadow: 0 1px 1px #fff
+*/
+
+
+/*
+背景 
+
+background-origin 设置元素背景图片的原始起始位置
+语法：
+background-origin ： border-box | padding-box | content-box;
+参数分别表示背景图片是从边框，还是内边距（默认值），或者是内容区域开始显示。
+
+background-clip 用来将背景图片做适当的裁剪以适应实际需要。
+语法：
+background-clip ： border-box | padding-box | content-box | no-clip
+参数分别表示从边框、或内填充，或者内容区域向外裁剪背景。no-clip表示不裁切，和参数border-box显示同样的效果。backgroud-clip默认值为border-box。
+
+background-size 设置背景图片的大小，以长度值或百分比显示，还可以通过cover和contain来对图片进行伸缩。
+语法：
+background-size: auto | <长度值> | <百分比> | cover | contain
+取值说明：
+1、auto：默认值，不改变背景图片的原始高度和宽度；
+2、<长度值>：成对出现如200px 50px，将背景图片宽高依次设置为前面两个值，当设置一个值时，将其作为图片宽度值来等比缩放；
+3、<百分比>：0％~100％之间的任何值，将背景图片宽高依次设置为所在元素宽高乘以前面百分比得出的数值，当设置一个值时同上；
+4、cover：顾名思义为覆盖，即将背景图片等比缩放以填满整个容器；
+5、contain：容纳，即将背景图片等比缩放至某一边紧贴容器边缘为止。
+
+multiple backgrounds 多重背景
+语法缩写：
+background ： [background-color] | [background-image] | [background-position][/background-size] | [background-repeat] | [background-attachment] | [background-clip] | [background-origin],...
+background-repeat : repeat1,repeat2,...,repeatN;
+backround-position : position1,position2,...,positionN;
+background-size : size1,size2,...,sizeN;
+background-attachment : attachment1,attachment2,...,attachmentN;
+background-clip : clip1,clip2,...,clipN;
+background-origin : origin1,origin2,...,originN;
+background-color : color;
+*/
