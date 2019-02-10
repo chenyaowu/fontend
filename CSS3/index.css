@@ -170,3 +170,87 @@ background-clip : clip1,clip2,...,clipN;
 background-origin : origin1,origin2,...,originN;
 background-color : color;
 */
+
+/*
+选择器
+E[att^="val"] 选择匹配元素E，且E元素定义的属性att，其属性值以val开头的任何字符串
+E[att$="val"] 选择匹配元素E，且元素E定义了属性att，其属性值以val结尾的任何字符串
+E[att*="val"] 选择匹配元素E，且E元素定义了属性att，其属性值任意位置包含了“val"
+
+E:root 匹配元素E所在的文档的根元素;
+
+E:not() 排除E元素中()中内容;
+eg:
+input:not([type="submit"]){
+	border:1px solid red;
+};
+
+:empty 选择E元素中没有任何内容的元素;
+:target 匹配文档(页面)的url的某个标志符的目标元素;
+:first-child 选择元素中的第一个子元素
+:last-child 选择元素中的最后一个子元素
+:nth-child(n) 定位某个父元素的一个或多个特定的子元素（其中“n”是其参数，而且可以是整数值(1,2,3,4)，也可以是表达式(2n+1、-n+5)和关键词(odd、even)，但参数n的起始值始终是1，而不是0。也就是说，参数n的值为0时，选择器将选择不到任何匹配的元素。）
+:nth-last-child(n) 从某父元素的最后一个子元素开始计算，来选择特定的元素
+:first-of-type 定位一个父元素下的某个类型的第一个子元素
+:nth-of-type(n) 定位一个父元素下的某个类型的第n个子元素
+:last-of-type 定位一个父元素下的某个类型的最后一个子元素
+:nth-last-of-type(n) 从某父元素的最后一个子元素开始计算,定位一个父元素下的某个类型的第n个子元素
+:only-child 匹配的元素的父元素中仅有一个子元素，而且是一个唯一的子元素
+:only-of-type 选择一个元素是它的父元素的唯一一个相同类型的子元素
+
+:enabled 匹配可用表单元素
+:disabled 匹配不可用表单元素
+:checked 匹配选中表单元素
+::selection 匹配突出显示的文本（注意： IE9+、Opera、Google Chrome 以及 Safari 中支持 ::selection 选择器。Firefox 支持替代的 ::-moz-selection ）
+:read-only 匹配处于只读状态元素
+:read-write 匹配非只读状态元素
+::before和::after 用来给元素的前面或后面插入内容，这两个常和"content"配合使用，使用的场景最多的就是清除浮动
+*/ 
+
+/*
+变形
+rotate() 旋转函数(如果这个值为正值，元素相对原点中心顺时针旋转；如果这个值为负值，元素相对原点中心逆时针旋转)
+eg:
+----------------------------------------------
+<div class="wrapper">
+  <div></div>
+</div>
+
+.wrapper {
+  width: 200px;
+  height: 200px;
+  border: 1px dotted red;
+  margin: 100px auto;
+}
+.wrapper div {
+  width: 200px;
+  height: 200px;
+  background: orange;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+-------------------------------------------------
+
+skew() 扭曲函数,将一个对象以其中心位置围绕着X轴和Y轴按照一定的角度倾斜
+Skew()具有三种情况：
+1、skew(x,y)使元素在水平和垂直方向同时扭曲（X轴和Y轴同时按一定的角度值进行扭曲变形）；第一个参数对应X轴，第二个参数对应Y轴。如果第二个参数未提供，则值为0，也就是Y轴方向上无斜切。
+2、skewX(x)仅使元素在水平方向扭曲变形（X轴扭曲变形）；
+3、skewY(y)仅使元素在垂直方向扭曲变形（Y轴扭曲变形）
+
+scale() 缩放函数,让元素根据中心原点对对象进行缩放。
+缩放 scale 具有三种情况：
+1、 scale(X,Y)使元素水平方向和垂直方向同时缩放（也就是X轴和Y轴同时缩放） 注意：Y是一个可选参数，如果没有设置Y值，则表示X，Y两个方向的缩放倍数是一样的
+2、scaleX(x)元素仅水平方向缩放（X轴缩放）
+3、scaleY(y)元素仅垂直方向缩放（Y轴缩放）
+注意： scale()的取值默认的值为1，当值设置为0.01到0.99之间的任何值，作用使一个元素缩小；而任何大于或等于1.01的值，作用是让元素放大。
+
+translate() 位移函数 将元素向指定的方向移动
+translate我们分为三种情况：
+1、translate(x,y)水平方向和垂直方向同时移动（也就是X轴和Y轴同时移动）
+2、translateX(x)仅水平方向移动（X轴移动）
+3、translateY(Y)仅垂直方向移动（Y轴移动）
+
+matrix() 矩阵
+
+*/
+
