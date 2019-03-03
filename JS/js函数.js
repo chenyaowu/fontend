@@ -27,3 +27,12 @@ var func = new Function('a','b','console.log(a+b);');
 var func = Function('a','b','console.log(a+b);');
 
 */
+
+/*
+
+编码
+encodeURIComponent(name,"UTF-8");
+解码
+decodeURIComponent("${name}","UTF-8");
+
+*/
