@@ -206,3 +206,8 @@ margin:20px auto;
 元素的display显示类型就会自动变为以 display:inline-block（块状元素）的方式显示，当然就可以设置元素的 width 和 height 了，且默认宽度不占满父元素
 
 */
+
+/*
+关闭输入框提示样式
+autocomplete off
+*/
